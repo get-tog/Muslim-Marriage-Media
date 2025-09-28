@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>মুসলিম ম্যারেজ মিডিয়া</title>
+  <meta name="description" content="মালুম ম্যারেজ মিডিয়া — ইসলামিক নিয়মে সম্পর্ক, প্রোফাইল, আর্টিকেল ও ইভেন্ট।">
+  <!-- Tailwind via CDN for quick styling (production: build into CSS) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bangla:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans Bangla', system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial; }
+    .avatar { width:80px; height:80px; border-radius:9999px; object-fit:cover; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-white shadow">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="bg-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold">ম</div>
+        <div>
+          <h1 class="text-xl font-bold">মুসলিম ম্যারেজ মিডিয়া</h1>
+          <p class="text-sm text-gray-600">ইসলামিক নিয়মে সম্পর্ক, নিকাহ ও দাম্পত্য জীবন</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex gap-4 items-center">
+        <a href="#profiles" class="text-sm hover:underline">প্রোফাইল</a>
+        <a href="#articles" class="text-sm hover:underline">মন্তব্য ও আর্টিকেল</a>
+        <a href="#resources" class="text-sm hover:underline">রিকোর্স</a>
+        <a href="#events" class="text-sm hover:underline">ইভেন্ট</a>
+        <button id="openRegister" class="bg-green-600 text-white px-3 py-2 rounded text-sm">রেজিস্টার করুন</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Hero -->
+    <section class="grid md:grid-cols-2 gap-8 items-center mb-8">
+      <div>
+        <h2 class="text-3xl font-extrabold mb-3">ইসলামিক মানদণ্ডে, সম্মান ও নিরাপত্তায় জীবনসঙ্গী খুঁজুন</h2>
+        <p class="text-gray-700 mb-4">খানাদার মূল্যবোধ, ধর্মীয় জীবন, শিক্ষা ও পরিবারের সম্মান মাথায় রেখে অনলাইন প্রোফাইল।</p>
+        <div class="flex gap-3">
+          <a href="#profiles" class="bg-green-600 text-white px-4 py-2 rounded">প্রোফাইল দেখুন</a>
+          <button id="openSearch" class="border border-green-600 text-green-600 px-4 py-2 rounded">খুঁজুন</button>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <form id="searchForm" class="space-y-3">
+          <div>
+            <label class="text-sm">লিঙ্গ</label>
+            <select id="gender" class="w-full border rounded px-2 py-2">
+              <option value="any">যেকোন</option>
+              <option value="male">পুরুষ</option>
+              <option value="female">নাগরিকী</option>
+            </select>
+          </div>
+          <div class="flex gap-2">
+            <div class="flex-1">
+              <label class="text-sm">বয়স (নূনতম)</label>
+              <input id="ageMin" type="number" value="18" min="18" class="w-full border rounded px-2 py-2" />
+            </div>
+            <div class="flex-1">
+              <label class="text-sm">বয়স (সর্বোচ্চ)</label>
+              <input id="ageMax" type="number" value="45" class="w-full border rounded px-2 py-2" />
+            </div>
+          </div>
+          <div>
+            <label class="text-sm">অঞ্চল / শহর</label>
+            <input id="city" type="text" placeholder="ঢাকা, চট্টগ্রাম..." class="w-full border rounded px-2 py-2" />
+          </div>
+          <div class="flex gap-2">
+            <button type="button" id="doSearch" class="bg-green-600 text-white px-4 py-2 rounded">সার্চ</button>
+            <button type="button" id="resetSearch" class="border px-4 py-2 rounded">রিসেট</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Profiles -->
+    <section id="profiles" class="mb-10">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-2xl font-bold">ফিচারড প্রোফাইল</h3>
+        <a href="#register" id="quickRegister" class="text-sm text-green-600">নতুন প্রোফাইল যোগ করুন</a>
+      </div>
+      <div id="profilesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Sample profiles are loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Articles -->
+    <section id="articles" class="mb-10">
+      <h3 class="text-2xl font-bold mb-3">আর্টিকেল ও গাইড</h3>
+      <div class="grid md:grid-cols-3 gap-4">
+        <article class="bg-white p-4 rounded shadow">
+          <h4 class="font-bold">নিকা—ইসলামিক প্রক্রিয়া</h4>
+          <p class="text-sm text-gray-600 mt-2">নিকা সম্পন্নের ইসলামিক নিয়ম ও কাগজপত্র।</p>
+          <a class="text-green-600 text-sm mt-2 inline-block" href="#">আরও পড়ুন →</a>
+        </article>
+        <article class="bg-white p-4 rounded shadow">
+          <h4 class="font-bold">স্বামী-স্ত্রীর দায়িত্ব</h4>
+          <p class="text-sm text-gray-600 mt-2">দাম্পত্য জীবনে সহানুভূতি ও আদর্শ আচরণ।</p>
+          <a class="text-green-600 text-sm mt-2 inline-block" href="#">আরও পড়ুন →</a>
+        </article>
+        <article class="bg-white p-4 rounded shadow">
+          <h4 class="font-bold">ফজিলত ও দোয়া</h4>
+          <p class="text-sm text-gray-600 mt-2">দাম্পত্য জীবনের জন্য দরকারি দোয়া ও ইসলামিক নির্দেশনা।</p>
+          <a class="text-green-600 text-sm mt-2 inline-block" href="#">আরও পড়ুন →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section id="resources" class="mb-10">
+      <h3 class="text-2xl font-bold mb-3">রিসোর্স & চেকলিস্ট</h3>
+      <ul class="grid md:grid-cols-3 gap-3">
+        <li class="bg-white p-3 rounded shadow">নিকা কাগজপত্র চেকলিস্ট</li>
+        <li class="bg-white p-3 rounded shadow">ফিকহ ভিত্তিক সম্পর্ক পরামর্শ</li>
+        <li class="bg-white p-3 rounded shadow">সিকিউরিটি ও প্রাইভেসি গাইড</li>
+      </ul>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="mb-10">
+      <h3 class="text-2xl font-bold mb-3">আসন্ন ইভেন্ট</h3>
+      <div class="bg-white p-4 rounded shadow">
+        <p class="font-semibold">লোকাল মিলন — ঢাকা</p>
+        <p class="text-sm text-gray-600">তারিখ: ১ অক্টোবর ২০২৫ — স্থান: আল আমিন হল</p>
+        <a href="#" class="text-green-600 text-sm">রেজিস্ট্রেশন →</a>
+      </div>
+    </section>
+
+    <!-- Contact / About -->
+    <section id="about" class="mb-10">
+      <h3 class="text-2xl font-bold mb-3">সাইট সম্পর্কে</h3>
+      <p class="text-gray-700">এই সাইটের লক্ষ্য: ইসলামিক মূল্যবোধ বজায় রেখে সম্মানজনক পরিবেশে জীবনসঙ্গী খোঁজা, শিক্ষা ও গাইড প্রদান করা।</p>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t mt-8">
+    <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-3">
+      <p class="text-sm text-gray-600">© ২০২৫ মুসলিম ম্যারেজ মিডিয়া — সব অধিকার সংরক্ষিত</p>
+      <div class="flex gap-3 text-sm">
+        <a href="#privacy" class="hover:underline">প্রাইভেসি</a>
+        <a href="#terms" class="hover:underline">শর্তাবলী</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal & Templates -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center p-4">
+    <div class="bg-white rounded shadow max-w-2xl w-full p-4" id="modalContent"></div>
+  </div>
+
+  <script>
+    // Sample data (in real site, fetch from server)
+    const sampleProfiles = [
+      {id:1,name:'আহমাদ করিম',age:28,city:'ঢাকা',education:'স্নাতক',bio:'ইসলামিক শিক্ষায় আগ্রহী, পরিবার-কেন্দ্রিক।',photo:'https://i.pravatar.cc/150?img=3',gender:'male'},
+      {id:2,name:'ফাতেমা হক',age:24,city:'চট্টগ্রাম',education:'মাস্টার্স',bio:'জব: শিক্ষক, নম্র ও বিনম্র স্বভাব।',photo:'https://i.pravatar.cc/150?img=5',gender:'female'},
+      {id:3,name:'মুহিব করিম',age:30,city:'রাজশাহী',education:'ডিগ্রী',bio:'প্রকৌশলী, পরিবার-ভিত্তিক সম্পর্ক খুঁজছি।',photo:'https://i.pravatar.cc/150?img=8',gender:'male'},
+      {id:4,name:'সাবরা জান',age:27,city:'সিলেট',education:'স্নাতক',bio:'গৃহশিক্ষিকা, ধর্মীয় কার্যক্রমে সক্রিয়।',photo:'https://i.pravatar.cc/150?img=12',gender:'female'}
+    ];
+
+    const profilesGrid = document.getElementById('profilesGrid');
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modalContent');
+
+    function renderProfiles(list){
+      profilesGrid.innerHTML = '';
+      list.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'bg-white p-4 rounded shadow flex gap-3 items-center';
+        card.innerHTML = `
+          <img src="${p.photo}" class="avatar" alt="${p.name}" />
+          <div class="flex-1">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="font-bold">${p.name}</h4>
+                <p class="text-sm text-gray-600">${p.age} বছর • ${p.city}</p>
+              </div>
+              <div>
+                <button class="viewBtn border px-3 py-1 rounded text-sm" data-id="${p.id}">ভিউ</button>
+              </div>
+            </div>
+            <p class="text-sm mt-2 text-gray-700">${p.bio}</p>
+          </div>
+        `;
+        profilesGrid.appendChild(card);
+      });
+
+      document.querySelectorAll('.viewBtn').forEach(btn => {
+        btn.addEventListener('click', (e)=>{
+          const id = +e.target.dataset.id;
+          const user = sampleProfiles.find(x=>x.id===id);
+          openProfileModal(user);
+        });
+      });
+    }
+
+    function openProfileModal(user){
+      modalContent.innerHTML = `
+        <div class="flex items-start gap-4">
+          <img src="${user.photo}" class="w-24 h-24 rounded" />
+          <div>
+            <h3 class="text-xl font-bold">${user.name}</h3>
+            <p class="text-sm text-gray-600">${user.age} বছর • ${user.city} • ${user.education}</p>
+            <p class="mt-2">${user.bio}</p>
+            <div class="mt-4 flex gap-2">
+              <button id="contactBtn" class="bg-green-600 text-white px-3 py-1 rounded">যোগাযোগ করুন</button>
+              <button id="closeModal" class="border px-3 py-1 rounded">বন্ধ</button>
+            </div>
+          </div>
+        </div>
+      `;
+      modal.classList.remove('hidden');
+
+      document.getElementById('closeModal').addEventListener('click', ()=> modal.classList.add('hidden'));
+      document.getElementById('contactBtn').addEventListener('click', ()=>{
+        modalContent.innerHTML += '<p class="mt-3 text-sm text-gray-600">যোগাযোগের জন্য প্রথমে লগইন/রেজিস্টার করুন।</p>';
+      });
+    }
+
+    // Search
+    document.getElementById('doSearch').addEventListener('click', ()=>{
+      const gender = document.getElementById('gender').value;
+      const min = parseInt(document.getElementById('ageMin').value||18,10);
+      const max = parseInt(document.getElementById('ageMax').value||65,10);
+      const city = document.getElementById('city').value.trim().toLowerCase();
+
+      const filtered = sampleProfiles.filter(p=>{
+        if(gender!=='any' && p.gender!==gender) return false;
+        if(p.age < min || p.age > max) return false;
+        if(city && !p.city.toLowerCase().includes(city)) return false;
+        return true;
+      });
+      renderProfiles(filtered);
+    });
+
+    document.getElementById('resetSearch').addEventListener('click', ()=>{
+      document.getElementById('gender').value='any';
+      document.getElementById('ageMin').value='18';
+      document.getElementById('ageMax').value='45';
+      document.getElementById('city').value='';
+      renderProfiles(sampleProfiles);
+    });
+
+    // Register modal (simple client-side demo)
+    function openRegisterModal(){
+      modalContent.innerHTML = `
+        <h3 class="text-xl font-bold mb-2">নতুন প্রোফাইল রেজিস্টার</h3>
+        <form id="registerForm" class="space-y-2">
+          <input required name="name" placeholder="সম্পূর্ণ নাম" class="w-full border px-2 py-2 rounded" />
+          <div class="flex gap-2">
+            <input required name="age" type="number" placeholder="বয়স" class="w-1/2 border px-2 py-2 rounded" />
+            <input name="city" placeholder="শহর" class="w-1/2 border px-2 py-2 rounded" />
+          </div>
+          <input name="education" placeholder="শিক্ষাগত যোগ্যতা" class="w-full border px-2 py-2 rounded" />
+          <select name="gender" class="w-full border px-2 py-2 rounded">
+            <option value="male">পুরুষ</option>
+            <option value="female">নারী</option>
+          </select>
+          <textarea name="bio" placeholder="স্ব-মোটা পরিচিতি" class="w-full border px-2 py-2 rounded"></textarea>
+          <div class="flex gap-2">
+            <button type="submit" class="bg-green-600 text-white px-3 py-2 rounded">সাবমিট</button>
+            <button type="button" id="closeReg" class="border px-3 py-2 rounded">বন্ধ</button>
+          </div>
+        </form>
+      `;
+      modal.classList.remove('hidden');
+
+      document.getElementById('closeReg').addEventListener('click', ()=> modal.classList.add('hidden'));
+      document.getElementById('registerForm').addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const newP = {
+          id: Date.now(),
+          name: fd.get('name'),
+          age: +fd.get('age'),
+          city: fd.get('city')||'---',
+          education: fd.get('education')||'---',
+          bio: fd.get('bio')||'---',
+          photo: 'https://i.pravatar.cc/150?img='+Math.floor(Math.random()*70),
+          gender: fd.get('gender')
+        };
+        sampleProfiles.push(newP);
+        renderProfiles(sampleProfiles);
+        modal.classList.add('hidden');
+        alert('আপনার প্রোফাইল ডেমোভাবে যোগ করা হয়েছে। (রিয়েল সাইটে সার্ভার-সাইড রেজিস্ট্রেশন প্রয়োজন)');
+      });
+    }
+
+    document.getElementById('openRegister').addEventListener('click', openRegisterModal);
+    document.getElementById('quickRegister').addEventListener('click', (e)=>{ e.preventDefault(); openRegisterModal(); });
+    document.getElementById('openSearch').addEventListener('click', ()=>{ window.location.hash='profiles'; });
+
+    // Close modal on bg click
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.classList.add('hidden'); });
+
+    // initial render
+    renderProfiles(sampleProfiles);
+  </script>
+</body>
+</html>
